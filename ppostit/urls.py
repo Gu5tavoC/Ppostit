@@ -17,5 +17,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^page/(?P<print_page>\d+)/model/?$', 'printy.views.print_view',
+        name='print_view'),
+    url(r'^page/(?P<print_page>\d+)/print/?$', 'printy.views.print_view',
+        {'model': False}, name='print_view'),
     url(r'^admin/', include(admin.site.urls)),
 ]

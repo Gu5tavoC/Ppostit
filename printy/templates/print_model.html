@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <style>
+            @media print {
+                @page {
+                size: {{print_page.page.width}}mm {{print_page.page.height}}mm; /* landscape */
+                /* you can also specify margins here: */
+
+                }
+            }
+            * {
+                padding:0;
+                margin:0;
+                font-family:Arial;
+            }
+            h1 {
+                border-bottom:1mm black dashed;
+                margin-bottom:2mm;
+            }
+            .box {
+                padding:2mm;
+                width:{{print_page.post_it_model.adjust_width}}mm;
+                height:{{print_page.post_it_model.adjust_height}}mm;
+                {% if model %}
+                    border:1mm solid black;
+                {% else %}
+                    border:1mm solid white;
+                {% endif %}
+                float:left;
+                margin:1mm;
+            }
+        </style>
+    </head>
+    <body>
+        {% for post in print_page.posts.all %}
+        <div class="box">
+            {% if not model %}
+            <h1>{{post.title}}</h1>
+            <p>
+                {{post.body}}
+            </p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </body>
+</html>

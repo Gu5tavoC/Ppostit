@@ -25,7 +25,7 @@ SECRET_KEY = 'e84gd-sk6v_g-++b0o&$ymv3)2@7-7mh^y%qdi#nczzn7h$01a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'printy'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -100,3 +101,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+PADDING = 1
+BORDER = 1 * 4
